@@ -1,6 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include <iostream>
+#include "ScreenSize.h"
 
 /// <summary>
 /// The prototype/base class all entities derive from

@@ -9,6 +9,8 @@
 #include <vector>
 #include "Entity.h"
 #include "GenericEnemy.h"
+#include "ScreenSize.h"
+
 class Game
 {
 public:

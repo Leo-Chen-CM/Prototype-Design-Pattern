@@ -1,9 +1,6 @@
 #include "Game.h"
 #include <iostream>
 
-
-unsigned const int WIDTH = 1800U;
-unsigned const int HEIGHT = 1600U;
 /// <summary>
 /// default constructor
 /// setup the window properties
@@ -11,7 +8,7 @@ unsigned const int HEIGHT = 1600U;
 /// load and setup thne image
 /// </summary>
 Game::Game() :
-	m_window{ sf::VideoMode{ WIDTH, HEIGHT, 32U }, "Practical Prototype" },
+	m_window{ sf::VideoMode{ ScreenSize::WIDTH, ScreenSize::HEIGHT, 32U }, "Practical Prototype" },
 	m_exitGame{false} //when true game will exit
 {
 	m_enemy = new GenericEnemy(sf::Vector2f(50.0f,50.0f), sf::Color::Blue);
@@ -132,7 +129,7 @@ void Game::render()
 //Adds another enemy through the Generic Enemy Constructor
 void Game::addAnotherEnemy()
 {
-	GenericEnemy* e = new GenericEnemy(sf::Vector2f(rand() % 1800 + 1, rand() % 1600 + 1),
+	GenericEnemy* e = new GenericEnemy(sf::Vector2f(rand() % ScreenSize::WIDTH + 1, rand() % ScreenSize::HEIGHT + 1),
 		sf::Color(rand() %255+1, rand() % 255 + 1, rand() % 255 + 1));
 	m_enemyVectorArray.push_back(e);
 }

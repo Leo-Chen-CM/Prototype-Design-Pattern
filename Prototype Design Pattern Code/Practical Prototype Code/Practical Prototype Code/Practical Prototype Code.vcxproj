@@ -20,12 +20,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="GenericEnemy.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Shape.cpp" />
+    <ClCompile Include="Entity.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h" />
-    <ClInclude Include="Shape.h" />
+    <ClInclude Include="Entity.h" />
+    <ClInclude Include="GenericEnemy.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="ASSETS\IMAGES\SFML-LOGO.png">

@@ -6,7 +6,9 @@
 /// Don't forget the endif at the bottom
 /// </summary>
 #include <SFML/Graphics.hpp>
-
+#include <vector>
+#include "Entity.h"
+#include "GenericEnemy.h"
 class Game
 {
 public:
@@ -23,9 +25,12 @@ private:
 	void processKeys(sf::Event t_event);
 	void update(sf::Time t_deltaTime);
 	void render();
-	
-	void setupFontAndText();
-	void setupSprite();
+	void addAnotherEnemy();
+	void cloneTheSameEnemy();
+
+	Entity* m_enemy;
+
+	std::vector<Entity*> m_enemyVectorArray;
 
 	sf::RenderWindow m_window; // main SFML window
 	sf::Font m_ArialBlackfont; // font used by message

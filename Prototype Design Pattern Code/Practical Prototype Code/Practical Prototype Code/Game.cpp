@@ -2,7 +2,8 @@
 #include <iostream>
 
 
-
+unsigned const int WIDTH = 1800U;
+unsigned const int HEIGHT = 1600U;
 /// <summary>
 /// default constructor
 /// setup the window properties
@@ -10,11 +11,11 @@
 /// load and setup thne image
 /// </summary>
 Game::Game() :
-	m_window{ sf::VideoMode{ 800U, 600U, 32U }, "SFML Game" },
+	m_window{ sf::VideoMode{ WIDTH, HEIGHT, 32U }, "Practical Prototype" },
 	m_exitGame{false} //when true game will exit
 {
-	setupFontAndText(); // load font 
-	setupSprite(); // load texture
+	m_enemy = new GenericEnemy(sf::Vector2f(50.0f,50.0f), sf::Color::Blue);
+	m_enemyVectorArray.push_back(m_enemy);
 }
 
 /// <summary>
@@ -84,6 +85,18 @@ void Game::processKeys(sf::Event t_event)
 	{
 		m_exitGame = true;
 	}
+
+	if (sf::Keyboard::Space == t_event.key.code)
+	{
+		addAnotherEnemy();
+		std::cout << "Manually added a new enemy" << std::endl;
+	}
+
+	if (sf::Keyboard::C == t_event.key.code)
+	{
+		cloneTheSameEnemy();
+		std::cout << "Cloned a new enemy from the same enemy" << std::endl;
+	}
 }
 
 /// <summary>
@@ -92,6 +105,11 @@ void Game::processKeys(sf::Event t_event)
 /// <param name="t_deltaTime">time interval per frame</param>
 void Game::update(sf::Time t_deltaTime)
 {
+	for (Entity* e : m_enemyVectorArray)
+	{
+		e->Update();
+	}
+
 	if (m_exitGame)
 	{
 		m_window.close();
@@ -103,42 +121,24 @@ void Game::update(sf::Time t_deltaTime)
 /// </summary>
 void Game::render()
 {
-	m_window.clear(sf::Color::White);
-	m_window.draw(m_welcomeMessage);
-	m_window.draw(m_logoSprite);
+	m_window.clear(sf::Color::Black);
+	for (Entity* e : m_enemyVectorArray)
+	{
+		e->Draw(m_window);
+	}
 	m_window.display();
 }
 
-/// <summary>
-/// load the font and setup the text message for screen
-/// </summary>
-void Game::setupFontAndText()
+//Adds another enemy through the Generic Enemy Constructor
+void Game::addAnotherEnemy()
 {
-	if (!m_ArialBlackfont.loadFromFile("ASSETS\\FONTS\\ariblk.ttf"))
-	{
-		std::cout << "problem loading arial black font" << std::endl;
-	}
-	m_welcomeMessage.setFont(m_ArialBlackfont);
-	m_welcomeMessage.setString("SFML Game");
-	m_welcomeMessage.setStyle(sf::Text::Underlined | sf::Text::Italic | sf::Text::Bold);
-	m_welcomeMessage.setPosition(40.0f, 40.0f);
-	m_welcomeMessage.setCharacterSize(80U);
-	m_welcomeMessage.setOutlineColor(sf::Color::Red);
-	m_welcomeMessage.setFillColor(sf::Color::Black);
-	m_welcomeMessage.setOutlineThickness(3.0f);
-
+	GenericEnemy* e = new GenericEnemy(sf::Vector2f(rand() % 1800 + 1, rand() % 1600 + 1),
+		sf::Color(rand() %255+1, rand() % 255 + 1, rand() % 255 + 1));
+	m_enemyVectorArray.push_back(e);
 }
 
-/// <summary>
-/// load the texture and setup the sprite for the logo
-/// </summary>
-void Game::setupSprite()
+//Adds the same enemy through Generic Enemy's clone method
+void Game::cloneTheSameEnemy()
 {
-	if (!m_logoTexture.loadFromFile("ASSETS\\IMAGES\\SFML-LOGO.png"))
-	{
-		// simple error message if previous call fails
-		std::cout << "problem loading logo" << std::endl;
-	}
-	m_logoSprite.setTexture(m_logoTexture);
-	m_logoSprite.setPosition(300.0f, 180.0f);
+	m_enemyVectorArray.push_back(m_enemy->Clone());
 }

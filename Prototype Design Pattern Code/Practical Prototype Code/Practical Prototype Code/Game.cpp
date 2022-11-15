@@ -86,13 +86,16 @@ void Game::processKeys(sf::Event t_event)
 	if (sf::Keyboard::Space == t_event.key.code)
 	{
 		addAnotherEnemy();
-		std::cout << "Manually added a new enemy" << std::endl;
 	}
 
 	if (sf::Keyboard::C == t_event.key.code)
 	{
 		cloneTheSameEnemy();
-		std::cout << "Cloned a new enemy from the same enemy" << std::endl;
+	}
+
+	if (sf::Keyboard::D == t_event.key.code)
+	{
+		deleteLastEnemy();
 	}
 }
 
@@ -132,10 +135,25 @@ void Game::addAnotherEnemy()
 	GenericEnemy* e = new GenericEnemy(sf::Vector2f(rand() % ScreenSize::WIDTH + 1, rand() % ScreenSize::HEIGHT + 1),
 		sf::Color(rand() %255+1, rand() % 255 + 1, rand() % 255 + 1));
 	m_enemyVectorArray.push_back(e);
+	std::cout << "Manually added a new enemy" << std::endl;
 }
 
 //Adds the same enemy through Generic Enemy's clone method
 void Game::cloneTheSameEnemy()
 {
 	m_enemyVectorArray.push_back(m_enemy->Clone());
+	std::cout << "Cloned a new enemy from the same enemy" << std::endl;
+}
+
+void Game::deleteLastEnemy()
+{
+	if (!m_enemyVectorArray.empty())
+	{
+		m_enemyVectorArray.pop_back();
+		std::cout << "Manually delete the last enemy" << std::endl;
+	}
+	else
+	{
+		std::cout << "There is no enemy left" << std::endl;
+	}
 }

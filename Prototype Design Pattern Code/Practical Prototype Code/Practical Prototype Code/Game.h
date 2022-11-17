@@ -10,6 +10,10 @@
 #include "Entity.h"
 #include "GenericEnemy.h"
 #include "ScreenSize.h"
+#include "NPC_Spawner.h"
+#include "SquareNPC.h"
+#include "CircleNPC.h"
+#include "ShapeNPC.h"
 
 class Game
 {
@@ -31,6 +35,9 @@ private:
 	void cloneTheSameEnemy();
 	void deleteLastEnemy();
 
+	void cloneSquareNPC();
+	void cloneCircleNPC();
+
 	Entity* m_enemy;
 
 	std::vector<Entity*> m_enemyVectorArray;
@@ -42,6 +49,13 @@ private:
 	sf::Sprite m_logoSprite; // sprite used for sfml logo
 	bool m_exitGame; // control exiting game
 
+	ShapeNPC* squarePrototype = new SquareNPC();
+	NPC_Spawner* squareSpawner = new NPC_Spawner(squarePrototype);
+
+	ShapeNPC* circlePrototype = new CircleNPC();
+	NPC_Spawner* circleSpawner = new NPC_Spawner(circlePrototype);
+
+	std::vector<ShapeNPC*> m_NPC_VectorArray;
 };
 
 #endif // !GAME_HPP

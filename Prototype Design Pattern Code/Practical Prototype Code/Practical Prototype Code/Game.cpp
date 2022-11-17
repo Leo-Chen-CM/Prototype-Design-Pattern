@@ -8,7 +8,7 @@
 /// load and setup thne image
 /// </summary>
 Game::Game() :
-	m_window{ sf::VideoMode{ ScreenSize::WIDTH, ScreenSize::HEIGHT, 32U }, "Practical Prototype" },
+	m_window{ sf::VideoMode{ ScreenSize::WIDTH, ScreenSize::HEIGHT, 32U }, "Practical Prototype Design Pattern" },
 	m_exitGame{false} //when true game will exit
 {
 	m_enemy = new GenericEnemy(sf::Vector2f(50.0f, 50.0f), sf::Color::Blue);
@@ -150,7 +150,7 @@ void Game::deleteLastEnemy()
 	if (!m_enemyVectorArray.empty())
 	{
 		m_enemyVectorArray.pop_back();
-		std::cout << "Manually delete the last enemy" << std::endl;
+		std::cout << "Manually deletes the last enemy" << std::endl;
 	}
 	else
 	{

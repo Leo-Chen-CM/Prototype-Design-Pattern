@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CircleEnemy.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GenericEnemy.cpp" />
     <ClCompile Include="main.cpp" />
@@ -26,6 +27,7 @@
     <ClCompile Include="ScreenSize.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CircleEnemy.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="GenericEnemy.h" />

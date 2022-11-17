@@ -28,6 +28,7 @@ public:
 	sf::Vector2f RandomiseDirection();
 
 	void Bounds();
+
 protected:
 	sf::RectangleShape m_body;
 	sf::Vector2f m_velocity;

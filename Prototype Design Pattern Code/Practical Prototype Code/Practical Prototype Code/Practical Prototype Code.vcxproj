@@ -19,19 +19,26 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CircleNPC.cpp" />
     <ClCompile Include="CircleEnemy.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GenericEnemy.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="ScreenSize.cpp" />
+    <ClCompile Include="ShapeNPC.cpp" />
+    <ClCompile Include="SquareNPC.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CircleNPC.h" />
     <ClInclude Include="CircleEnemy.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="GenericEnemy.h" />
+    <ClInclude Include="NPC_Spawner.h" />
     <ClInclude Include="ScreenSize.h" />
+    <ClInclude Include="ShapeNPC.h" />
+    <ClInclude Include="SquareNPC.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="ASSETS\IMAGES\SFML-LOGO.png">

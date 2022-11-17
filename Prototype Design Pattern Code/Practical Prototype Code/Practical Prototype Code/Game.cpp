@@ -97,6 +97,16 @@ void Game::processKeys(sf::Event t_event)
 	{
 		deleteLastEnemy();
 	}
+
+	if (sf::Keyboard::S == t_event.key.code)
+	{
+		cloneSquareNPC();
+	}
+
+	if (sf::Keyboard::A == t_event.key.code)
+	{
+		cloneCircleNPC();
+	}
 }
 
 /// <summary>
@@ -108,6 +118,11 @@ void Game::update(sf::Time t_deltaTime)
 	for (Entity* e : m_enemyVectorArray)
 	{
 		e->Update();
+	}
+
+	for (ShapeNPC* s : m_NPC_VectorArray)
+	{
+		s->Update();
 	}
 
 	if (m_exitGame)
@@ -125,6 +140,11 @@ void Game::render()
 	for (Entity* e : m_enemyVectorArray)
 	{
 		e->Draw(m_window);
+	}
+
+	for (ShapeNPC* s : m_NPC_VectorArray)
+	{
+		s->Draw(m_window);
 	}
 	m_window.display();
 }
@@ -156,4 +176,20 @@ void Game::deleteLastEnemy()
 	{
 		std::cout << "There is no enemy left" << std::endl;
 	}
+}
+
+void Game::cloneSquareNPC()
+{
+	ShapeNPC* s = squareSpawner->spawnMonster();
+	std::cout << "Manually clone square NPC" << std::endl;
+
+	m_NPC_VectorArray.push_back(s);
+}
+
+void Game::cloneCircleNPC()
+{
+	ShapeNPC* c = circleSpawner->spawnMonster();
+	std::cout << "Manually clone circle NPC" << std::endl;
+
+	m_NPC_VectorArray.push_back(c);
 }

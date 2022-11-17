@@ -29,6 +29,7 @@ private:
 	void render();
 	void addAnotherEnemy();
 	void cloneTheSameEnemy();
+	void deleteLastEnemy();
 
 	Entity* m_enemy;
 

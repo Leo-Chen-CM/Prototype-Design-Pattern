@@ -1,4 +1,5 @@
 #include"ScreenSize.h"
 
-unsigned int ScreenSize::WIDTH = 1800; 
-unsigned int ScreenSize::HEIGHT = 1600; 
+unsigned int ScreenSize::WIDTH = sf::VideoMode::getDesktopMode().width / 2;
+unsigned int ScreenSize::HEIGHT = sf::VideoMode::getDesktopMode().height / 2;
+

@@ -17,8 +17,7 @@ public:
 	//{
 	//	sf::Vector2f v = sf::Vector2f(rand() % 10 + 1, rand() % 10 + 1);
 	//	float mag = std::sqrtf((v.x * v.x) + (v.y * v.y));
-	//	m_velocity = sf::Vector2f(v.x / mag, v.y / mag);
-
+	//	m_velocity = sf::Vector2f(v.x / mag, v.y / mag);s
 	//	std::cout << "Velocity: "<< m_velocity.x<< ", "<< m_velocity.y << std::endl;
 	//};
 	virtual Entity* Clone() = 0;

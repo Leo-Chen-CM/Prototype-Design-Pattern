@@ -1,5 +1,7 @@
 #ifndef GAME_HPP
 #define GAME_HPP
+//Authors: Leo Chen and Danial Nor Azman
+
 /// <summary>
 /// include guards used so we don't process this file twice
 /// same as #pragma once

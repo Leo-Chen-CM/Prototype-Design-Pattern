@@ -65,9 +65,6 @@
     <ClInclude Include="ShapeNPC.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GenericNPC.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="SquareNPC.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -75,7 +72,7 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="NPC_Spawner.h">
-	<Filter>Header Files</Filter>
+      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="CircleEnemy.h">
       <Filter>Header Files</Filter>

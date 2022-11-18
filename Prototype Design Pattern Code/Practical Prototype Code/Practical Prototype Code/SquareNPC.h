@@ -22,10 +22,11 @@ public:
 		return new SquareNPC();
 	}
 
-	virtual void Update() override;
-	virtual void Draw(sf::RenderWindow& t_window) override;
-	virtual void Bounds() override;
+	void Update() override;
+	void Draw(sf::RenderWindow& t_window) override;
+	void Bounds() override;
 
+	sf::RectangleShape ReturnShape() { return m_body; };
 private:
 
 	sf::RectangleShape m_body;

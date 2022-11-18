@@ -10,6 +10,7 @@ public:
 	virtual ShapeNPC* Clone() = 0;
 
 	virtual void Update() = 0;
+
 	virtual void Draw(sf::RenderWindow& t_window) = 0;
 
 	sf::Vector2f RandomiseDirection();

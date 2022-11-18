@@ -1,11 +1,12 @@
 #pragma once
 #include "Entity.h"
 
-class GenericEnemy :  public Entity
+class SquareEntity :  public Entity
 {
 public:
-	GenericEnemy(sf::Vector2f t_position, sf::Color t_color)
+	SquareEntity(sf::Vector2f t_position, sf::Color t_color)
 	{
+		m_type = EntityType::Square;
 		m_color = t_color;
 		m_position = t_position;
 		m_body.setFillColor(m_color);
@@ -18,9 +19,13 @@ public:
 		m_velocity = sf::Vector2f(v.x / mag, v.y / mag);
 	};
 
+	sf::RectangleShape& GetSquare() override { return m_body; };
+
 	//Clones the exact same copy of this enemy
 	Entity * Clone() override
 	{
-		return new GenericEnemy(*this);
+		return new SquareEntity(*this);
 	}
+private:
+	sf::RectangleShape m_body;
 };

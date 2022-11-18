@@ -20,9 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CircleNPC.cpp" />
-    <ClCompile Include="CircleEnemy.cpp" />
     <ClCompile Include="Game.cpp" />
-    <ClCompile Include="GenericEnemy.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="ScreenSize.cpp" />
@@ -30,8 +28,8 @@
     <ClCompile Include="SquareNPC.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="CircleNPC.h" />
     <ClInclude Include="CircleEnemy.h" />
+    <ClInclude Include="CircleNPC.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="GenericEnemy.h" />

@@ -5,10 +5,6 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
-    </Filter>
     <Filter Include="Resource Files">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
@@ -18,6 +14,16 @@
     </Filter>
     <Filter Include="Resource Files\IMAGES">
       <UniqueIdentifier>{1d793ccc-0d22-4eea-8d0e-c5b5a5270a40}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Header Files\NPCs">
+      <UniqueIdentifier>{65fbd987-28cb-4d6a-88cd-6f372500927f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\NPCs">
+      <UniqueIdentifier>{bd1eb23f-5ea9-4d29-bc3f-a1727bcaf0e5}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -30,49 +36,43 @@
     <ClCompile Include="Entity.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GenericEnemy.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="ScreenSize.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ShapeNPC.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="SquareNPC.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\NPCs</Filter>
+    </ClCompile>
+    <ClCompile Include="ShapeNPC.cpp">
+      <Filter>Source Files\NPCs</Filter>
     </ClCompile>
     <ClCompile Include="CircleNPC.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CircleEnemy.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\NPCs</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Game.h">
+    <ClInclude Include="Entity.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Entity.h">
+    <ClInclude Include="Game.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="GenericEnemy.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="NPC_Spawner.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="ScreenSize.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="CircleNPC.h">
+      <Filter>Header Files\NPCs</Filter>
+    </ClInclude>
     <ClInclude Include="ShapeNPC.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\NPCs</Filter>
     </ClInclude>
     <ClInclude Include="SquareNPC.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CircleNPC.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="NPC_Spawner.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\NPCs</Filter>
     </ClInclude>
     <ClInclude Include="CircleEnemy.h">
       <Filter>Header Files</Filter>

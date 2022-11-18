@@ -8,6 +8,7 @@ void CircleNPC::Update()
 	Bounds();
 }
 
+
 void CircleNPC::Draw(sf::RenderWindow& t_window)
 {
 	t_window.draw(m_body);

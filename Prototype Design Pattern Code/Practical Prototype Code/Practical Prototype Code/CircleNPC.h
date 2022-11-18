@@ -22,10 +22,10 @@ public:
 		return new CircleNPC();
 	}
 
-	virtual void Update() override;
-	virtual void Draw(sf::RenderWindow& t_window) override;
-	virtual void Bounds() override;
-
+	void Update() override;
+	void Draw(sf::RenderWindow& t_window) override;
+	void Bounds() override;
+	sf::CircleShape ReturnShape() { return m_body; };
 private:
 
 	sf::CircleShape m_body;

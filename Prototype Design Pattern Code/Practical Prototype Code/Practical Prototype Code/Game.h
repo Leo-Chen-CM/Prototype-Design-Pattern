@@ -10,7 +10,8 @@
 #include <SFML/Graphics.hpp>
 #include <vector>
 #include "Entity.h"
-#include "GenericEnemy.h"
+#include "SquareEntity.h"
+#include "CircleEntity.h"
 #include "ScreenSize.h"
 #include "NPC_Spawner.h"
 #include "SquareNPC.h"
@@ -35,20 +36,20 @@ private:
 	void render();
 	void addAnotherEnemy();
 	void cloneTheSameEnemy();
+	void cloneTheSameEnemyCircle();
 	void deleteLastEnemy();
 
 	void cloneSquareNPC();
 	void cloneCircleNPC();
 
-	Entity* m_enemy;
+	Entity* m_entitySquare;
+	Entity* m_entityCircle;
 
-	std::vector<Entity*> m_enemyVectorArray;
+	std::vector<Entity*> m_entityVectorArray;
 
 	sf::RenderWindow m_window; // main SFML window
 	sf::Font m_ArialBlackfont; // font used by message
-	sf::Text m_welcomeMessage; // text used for message on screen
-	sf::Texture m_logoTexture; // texture used for sfml logo
-	sf::Sprite m_logoSprite; // sprite used for sfml logo
+	sf::Text m_helpMessage; // text used for message on screen
 	bool m_exitGame; // control exiting game
 
 	ShapeNPC* squarePrototype = new SquareNPC();

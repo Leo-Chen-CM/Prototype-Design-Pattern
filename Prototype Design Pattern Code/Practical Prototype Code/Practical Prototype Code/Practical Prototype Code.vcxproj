@@ -28,11 +28,11 @@
     <ClCompile Include="SquareNPC.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="CircleEnemy.h" />
+    <ClInclude Include="CircleEntity.h" />
     <ClInclude Include="CircleNPC.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Entity.h" />
-    <ClInclude Include="GenericEnemy.h" />
+    <ClInclude Include="SquareEntity.h" />
     <ClInclude Include="NPC_Spawner.h" />
     <ClInclude Include="ScreenSize.h" />
     <ClInclude Include="ShapeNPC.h" />

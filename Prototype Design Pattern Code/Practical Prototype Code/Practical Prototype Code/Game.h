@@ -34,10 +34,10 @@ private:
 	void processKeys(sf::Event t_event);
 	void update(sf::Time t_deltaTime);
 	void render();
-	void addAnotherEnemy();
-	void cloneTheSameEnemy();
-	void cloneTheSameEnemyCircle();
-	void deleteLastEnemy();
+	void addAnotherRandomEntity();
+	void cloneTheSameSquareEntity();
+	void cloneTheSameCircleEntity();
+	void deleteLastMadeEntity();
 
 	void cloneSquareNPC();
 	void cloneCircleNPC();

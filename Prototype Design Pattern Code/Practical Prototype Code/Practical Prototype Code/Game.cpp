@@ -11,10 +11,10 @@ Game::Game() :
 	m_window{ sf::VideoMode{ ScreenSize::WIDTH, ScreenSize::HEIGHT, 32U }, "Practical Prototype Design Pattern" },
 	m_exitGame{false} //when true game will exit
 {
-	m_enemy = new GenericEnemy(sf::Vector2f(50.0f, 50.0f), sf::Color::Blue);
-	m_enemyVectorArray.push_back(m_enemy);
-	m_enemyCircle = new CircleEnemy(sf::Vector2f(100.0f, 50.0f), sf::Color::Red);
-	m_enemyVectorArray.push_back(m_enemyCircle);
+	m_entitySquare = new SquareEntity(sf::Vector2f(50.0f, 50.0f), sf::Color::Blue);
+	m_entityVectorArray.push_back(m_entitySquare);
+	m_entityCircle = new CircleEntity(sf::Vector2f(100.0f, 50.0f), sf::Color::Red);
+	m_entityVectorArray.push_back(m_entityCircle);
 }
 
 /// <summary>
@@ -87,22 +87,22 @@ void Game::processKeys(sf::Event t_event)
 
 	if (sf::Keyboard::Space == t_event.key.code)
 	{
-		addAnotherEnemy();
+		addAnotherRandomEntity();
 	}
 
 	if (sf::Keyboard::S == t_event.key.code)
 	{
-		cloneTheSameEnemy();
+		cloneTheSameSquareEntity();
 	}
 
 	if (sf::Keyboard::C == t_event.key.code)
 	{
-		cloneTheSameEnemyCircle();
+		cloneTheSameCircleEntity();
 	}
 
 	if (sf::Keyboard::Backspace == t_event.key.code)
 	{
-		deleteLastEnemy();
+		deleteLastMadeEntity();
 	}
 
 	//if (sf::Keyboard::S == t_event.key.code)
@@ -122,7 +122,7 @@ void Game::processKeys(sf::Event t_event)
 /// <param name="t_deltaTime">time interval per frame</param>
 void Game::update(sf::Time t_deltaTime)
 {
-	for (Entity* e : m_enemyVectorArray)
+	for (Entity* e : m_entityVectorArray)
 	{
 		if (e->ReturnType() == EntityType::Cricle)
 		{
@@ -152,7 +152,7 @@ void Game::update(sf::Time t_deltaTime)
 void Game::render()
 {
 	m_window.clear(sf::Color::Black);
-	for (Entity* e : m_enemyVectorArray)
+	for (Entity* e : m_entityVectorArray)
 	{
 		if (e->ReturnType() == EntityType::Cricle)
 		{
@@ -172,49 +172,49 @@ void Game::render()
 	m_window.display();
 }
 
-//Adds another enemy through the Generic Enemy Constructor
-void Game::addAnotherEnemy()
+//Adds another entity through the different entity Constructor
+void Game::addAnotherRandomEntity()
 {
 
 	int type = rand() % 2;
 
 	if (type == 0)
 	{
-		GenericEnemy* e = new GenericEnemy(sf::Vector2f(rand() % ScreenSize::WIDTH + 1, rand() % ScreenSize::HEIGHT + 1),
+		SquareEntity* e = new SquareEntity(sf::Vector2f(rand() % ScreenSize::WIDTH + 1, rand() % ScreenSize::HEIGHT + 1),
 			sf::Color(rand() % 255 + 1, rand() % 255 + 1, rand() % 255 + 1));
-		m_enemyVectorArray.push_back(e);
+		m_entityVectorArray.push_back(e);
 		std::cout << "Manually added a new square entity" << std::endl;
 	}
 	else
 	{
-		CircleEnemy* c = new CircleEnemy(sf::Vector2f(rand() % ScreenSize::WIDTH + 1, rand() % ScreenSize::HEIGHT + 1),
+		CircleEntity* c = new CircleEntity(sf::Vector2f(rand() % ScreenSize::WIDTH + 1, rand() % ScreenSize::HEIGHT + 1),
 			sf::Color(rand() % 255 + 1, rand() % 255 + 1, rand() % 255 + 1));
-		m_enemyVectorArray.push_back(c);
+		m_entityVectorArray.push_back(c);
 		std::cout << "Manually added a new circle entity" << std::endl;
 	}
 
 }
 
-//Adds the same enemy through Generic Enemy's clone method
-void Game::cloneTheSameEnemy()
+//Adds the same entity through entity's clone method
+void Game::cloneTheSameSquareEntity()
 {
 
-	m_enemyVectorArray.push_back(m_enemy->Clone());
+	m_entityVectorArray.push_back(m_entitySquare->Clone());
 	std::cout << "Cloned a new square from the same entity" << std::endl;
 }
 
-void Game::cloneTheSameEnemyCircle()
+void Game::cloneTheSameCircleEntity()
 {
-	m_enemyVectorArray.push_back(m_enemyCircle->Clone());
+	m_entityVectorArray.push_back(m_entityCircle->Clone());
 	std::cout << "Cloned a new circle from the same entity" << std::endl;
 }
 
-void Game::deleteLastEnemy()
+void Game::deleteLastMadeEntity()
 {
-	if (!m_enemyVectorArray.empty())
+	if (!m_entityVectorArray.empty())
 	{
-		m_enemyVectorArray.pop_back();
-		std::cout << "Manually deletes the last enemy" << std::endl;
+		m_entityVectorArray.pop_back();
+		std::cout << "Manually deletes the last entity" << std::endl;
 	}
 	else
 	{
